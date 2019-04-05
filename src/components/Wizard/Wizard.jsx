@@ -23,7 +23,7 @@ export class Wizard extends Component {
         From Wizard.jsx
         <br></br>
         <Switch>
-          <Route path='/wizard/stepone' component={StepOne} />
+          <Route state={this.props.location.state} path='/wizard/stepone' component={StepOne} />
           <Route path='/wizard/steptwo' component={StepTwo} />
           <Route path='/wizard/stepthree' component={StepThree} />
         </Switch>

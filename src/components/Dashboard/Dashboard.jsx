@@ -44,7 +44,7 @@ export class Dashboard extends Component {
         state={elem.state}
         deleteDatHouse={this.deleteDatHouse}
         image={elem.image} /> )})}
-        <Link to='/wizard/stepone'>
+        <Link state={this.state.listOfHouses} to='/wizard/stepone'>
           <button>ADD NEW PROPERTY</button>
         </Link>
       </div>

@@ -19,6 +19,7 @@ export class StepOne extends Component {
   }
 
   componentDidMount(){
+      console.log(this.props.location.state)
       store.subscribe(()=>{
           const reduxState = store.getState();
           this.setState({
