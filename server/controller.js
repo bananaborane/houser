@@ -5,9 +5,9 @@ module.exports = {
         res.status(200).send(response)
     },
     post: async (req, res, next)=>{
-        let { name, address, city, state, zip_code } = req.body;
+        let { name, address, city, state, zip_code, image, mortgage, rent } = req.body;
         const db = req.app.get('db');
-        let response = await db.insertHouse({ house_name: name, address, city, state, zip_code });
+        let response = await db.insertHouse({ house_name: name, address, city, state, zip_code, image, mortgage, rent });
         res.status(200).send('a house has been added')
         console.log('a house has been added')
     },

@@ -1,13 +1,15 @@
 import React, { Component } from 'react'
 import axios from 'axios'
 import { Link, Switch, Route } from 'react-router-dom'
+import store, {UPDATE_STEPTHREE, ADD_HOUSE} from './../../store'
 
 export class StepThree extends Component {
     constructor(){
         super();
+        const reduxState = store.getState();
         this.state = {
-            mortgage: null,
-            rent: null
+            mortgage: reduxState.mortgage,
+            rent: reduxState.rent
         }
         this.handleDatChange = this.handleDatChange.bind(this);
         this.addDatHouse = this.addDatHouse.bind(this);
@@ -23,14 +25,30 @@ export class StepThree extends Component {
       }
     
       addDatHouse(){
-        let { address, city, state } = this.state
-        axios.post('/api/houses', { 
-          house_name: this.state.name,
-          address,
-          city,
-          state,
-          zip_code: this.state.zipCode
-          } ).then(()=>{ this.props.history.push('/') }).catch(err => console.log(err))
+        // let { address, city, state } = this.state
+        // axios.post('/api/houses', { 
+        //   house_name: this.state.name,
+        //   address,
+        //   city,
+        //   state,
+        //   zip_code: this.state.zipCode
+        //   } ).then(()=>{ this.props.history.push('/') }).catch(err => console.log(err)) 
+        //   // THIS.PROPS.HISTORY.PUSH('/') SENDS US BACK TO THE HOME PAGE
+
+        store.dispatch({
+            action: ADD_HOUSE,
+            payload: this.state
+        })
+      }
+
+      componentDidMount(){
+          store.subscribe(()=>{
+              const reduxState = store.getState();
+              this.setState({
+                  mortgage: reduxState.mortgage,
+                  rent: reduxState.rent
+              })
+          })
       }
     
     

@@ -4,9 +4,17 @@ import axios from 'axios';
 import StepOne from './../StepOne/StepOne'
 import StepTwo from './../StepTwo/StepTwo'
 import StepThree from './../StepThree/StepThree'
+import store, {CLEAR_INPUTS} from './../../store'
 
 export class Wizard extends Component {
 
+
+
+  clearAllInputs = ()=>{
+    store.dispatch({
+      type: CLEAR_INPUTS
+    })
+  }
 
 
   render() {
@@ -21,7 +29,7 @@ export class Wizard extends Component {
         </Switch>
         <br></br>
         <Link to='/' >
-          <button>CANCEL</button>
+          <button onClick={()=>{this.clearAllInputs()}}>CANCEL</button>
         </Link>
 
       </div>

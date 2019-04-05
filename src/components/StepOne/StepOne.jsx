@@ -1,23 +1,35 @@
 import React, { Component } from 'react'
 import { Link, Route, Switch } from 'react-router-dom';
 import axios from 'axios'
+import store, { UPDATE_STEPONE } from './../../store'
 
 export class StepOne extends Component {
-  constructor(){
-    super();
+  constructor(props){
+    super(props);
+    let reduxState = store.getState();
     this.state = {
-      name: '',
-      address: '',
-      city: '',
-      state: '',
-      zipCode: null,
-      image: '',
-      mortgage: null,
-      rent: null
+      name: reduxState.name,
+      address: reduxState.address,
+      city: reduxState.city,
+      state: reduxState.state,
+      zipCode: reduxState.zipCode
+
     }
     this.handleDatChange = this.handleDatChange.bind(this);
   }
 
+  componentDidMount(){
+      store.subscribe(()=>{
+          const reduxState = store.getState();
+          this.setState({
+            name: reduxState.name,
+            address: reduxState.address,
+            city: reduxState.city,
+            state: reduxState.state,
+            zipCode: reduxState.zipCode,
+          })
+      });
+  }
 
   handleDatChange(e){
     const {name, value} = e.target;
@@ -25,6 +37,13 @@ export class StepOne extends Component {
       [name]: value
     })
     console.log(this.state)
+  }
+
+  updateStepOne = ()=>{
+    store.dispatch({
+        type: UPDATE_STEPONE,
+        payload: this.state
+    })
   }
 
 
@@ -39,7 +58,7 @@ export class StepOne extends Component {
         <input placeholder='enter city here' onChange={(e)=>{this.handleDatChange(e)}} name='city' type="text"/>
         <input placeholder='enter state here' onChange={(e)=>{this.handleDatChange(e)}} maxLength='2' name='state' type="text"/>
         <input placeholder='enter zipCode here' onChange={(e)=>{this.handleDatChange(e)}} maxLength='10' name='zipCode' type="number"/>
-        <Link to='/wizard/steptwo' >
+        <Link  onClick={()=>{this.updateStepOne()}} to='/wizard/steptwo' >
                     <button>ONTO STEP TWO</button>
                 </Link>
       </div>
