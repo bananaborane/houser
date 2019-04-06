@@ -23,13 +23,13 @@ export class Wizard extends Component {
         From Wizard.jsx
         <br></br>
         <Switch>
-          <Route state={this.props.location.state} path='/wizard/stepone' component={StepOne} />
+          <Route path='/wizard/stepone' component={StepOne} />
           <Route path='/wizard/steptwo' component={StepTwo} />
           <Route path='/wizard/stepthree' component={StepThree} />
         </Switch>
         <br></br>
-        <Link to='/' >
-          <button onClick={()=>{this.clearAllInputs()}}>CANCEL</button>
+        <Link  onClick={()=>{this.clearAllInputs()}} to='/' >
+          <button>CANCEL</button>
         </Link>
 
       </div>

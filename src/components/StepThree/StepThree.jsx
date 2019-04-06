@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import axios from 'axios'
 import { Link, Switch, Route } from 'react-router-dom'
-import store, {UPDATE_STEPTHREE, ADD_HOUSE} from './../../store'
+import store, {UPDATE_STEPTHREE, ADD_HOUSE, CLEAR_INPUTS} from './../../store'
 
 export class StepThree extends Component {
     constructor(){
@@ -25,20 +25,16 @@ export class StepThree extends Component {
       }
     
       addDatHouse(){
-        // let { address, city, state } = this.state
-        // axios.post('/api/houses', { 
-        //   house_name: this.state.name,
-        //   address,
-        //   city,
-        //   state,
-        //   zip_code: this.state.zipCode
-        //   } ).then(()=>{ this.props.history.push('/') }).catch(err => console.log(err)) 
-        //   // THIS.PROPS.HISTORY.PUSH('/') SENDS US BACK TO THE HOME PAGE
 
         store.dispatch({
-            action: ADD_HOUSE,
+            type: ADD_HOUSE,
             payload: this.state
         })
+        const reduxState = store.getState();
+        axios.post('/api/houses', reduxState.listOfHouses[reduxState.listOfHouses.length - 1])
+        .then(()=>{ this.props.history.push('/') })
+         // THIS.PROPS.HISTORY.PUSH('/') SENDS US BACK TO THE HOME PAGE
+        .catch(err => console.log(err))
       }
 
       componentDidMount(){

@@ -12,7 +12,7 @@ export class StepOne extends Component {
       address: reduxState.address,
       city: reduxState.city,
       state: reduxState.state,
-      zipCode: reduxState.zipCode
+      zip_code: reduxState.zip_code
 
     }
     this.handleDatChange = this.handleDatChange.bind(this);
@@ -27,7 +27,7 @@ export class StepOne extends Component {
             address: reduxState.address,
             city: reduxState.city,
             state: reduxState.state,
-            zipCode: reduxState.zipCode,
+            zip_code: reduxState.zip_code,
           })
       });
   }
@@ -58,7 +58,7 @@ export class StepOne extends Component {
         <input placeholder='enter address here' onChange={(e)=>{this.handleDatChange(e)}} name='address' type="text"/>
         <input placeholder='enter city here' onChange={(e)=>{this.handleDatChange(e)}} name='city' type="text"/>
         <input placeholder='enter state here' onChange={(e)=>{this.handleDatChange(e)}} maxLength='2' name='state' type="text"/>
-        <input placeholder='enter zipCode here' onChange={(e)=>{this.handleDatChange(e)}} maxLength='10' name='zipCode' type="number"/>
+        <input placeholder='enter zip_code here' onChange={(e)=>{this.handleDatChange(e)}} maxLength='10' name='zip_code' type="number"/>
         <Link  onClick={()=>{this.updateStepOne()}} to='/wizard/steptwo' >
                     <button>ONTO STEP TWO</button>
                 </Link>
