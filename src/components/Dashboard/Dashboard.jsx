@@ -3,6 +3,7 @@ import House from './../House/House'
 import { Link, Switch, Route} from 'react-router-dom'
 import axios from 'axios';
 import store , { DISPLAY_LIST } from './../../store'
+import './Dashboard.css'
 
 export class Dashboard extends Component {
   constructor(){
@@ -39,22 +40,30 @@ export class Dashboard extends Component {
 
   render() {
     return (
-      <div>
-        From Dashboard.jsx
+      <div className='dashboard'>
+          <div className='dashboard-and-add-button' >
 
-        {this.state.listOfHouses.map((elem, i)=>{return ( <House key={elem.house_id} 
-        id={elem.house_id}
-        name={elem.house_name} 
-        address={elem.address} 
-        city={elem.city}
-        zip_code={elem.zip_code}
-        state={elem.state}
-        deleteDatHouse={this.deleteDatHouse}
-        image={elem.image} /> )})}
+                <h1 className='dashboard-text' >Dashboard</h1>
+
+            <Link to='/wizard/stepone' className='add-property-button' >
+              <button>ADD NEW PROPERTY</button>
+            </Link>
+
+          </div>
+
+        <div className='mapped-properties'>
+          <h1 className='home-listings-text' >Home Listings</h1>
+          {this.state.listOfHouses.map((elem, i)=>{return ( <House key={elem.house_id} 
+            id={elem.house_id}
+            name={elem.house_name} 
+            address={elem.address} 
+            city={elem.city}
+            zip_code={elem.zip_code}
+            state={elem.state}
+            deleteDatHouse={this.deleteDatHouse}
+            image={elem.image} /> )})}
         
-        <Link to='/wizard/stepone'>
-          <button>ADD NEW PROPERTY</button>
-        </Link>
+        </div>
       </div>
     )
   }

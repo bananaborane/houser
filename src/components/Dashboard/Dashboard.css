@@ -1,0 +1,12 @@
+.dashboard-and-add-button {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px black solid;
+    padding: 20px;
+}
+
+.dashboard-text {
+    font-size: 3rem;
+}

@@ -1,12 +1,85 @@
+/* RESET.CSS BEGINNING */
+
+/* http://meyerweb.com/eric/tools/css/reset/ 
+   v2.0 | 20110126
+   License: none (public domain)
+*/
+
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed, 
+figure, figcaption, footer, header, hgroup, 
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	font-size: 100%;
+	font: inherit;
+	vertical-align: baseline;
+}
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure, 
+footer, header, hgroup, menu, nav, section {
+	display: block;
+}
+body {
+	line-height: 1;
+}
+ol, ul {
+	list-style: none;
+}
+blockquote, q {
+	quotes: none;
+}
+blockquote:before, blockquote:after,
+q:before, q:after {
+	content: '';
+	content: none;
+}
+table {
+	border-collapse: collapse;
+	border-spacing: 0;
+}
+
+/* RESET.CSS END */
+
+
+
+
+
+
+
+.main {
+    background-color: #E5F4EC;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column; 
+    width: 60%;
+}
+
 .App {
   text-align: center;
+  background-color: #AFD4C0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column
 }
 
 .App-logo {
   animation: App-logo-spin infinite 1.3s linear;
-  height: 40vmin;
+  height: 8vmin;
   pointer-events: none;
-  width: 150px
+  width: 8vmin;
 }
 
 .App-header {
@@ -32,3 +105,9 @@
     transform: rotate(0deg);
   }
 }
+
+
+
+
+/* 3B5249, 519872, AFD4C0, E5F4EC, 8AEA92, FEC2C2, DEDEDE */
+

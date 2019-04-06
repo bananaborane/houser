@@ -1,0 +1,25 @@
+.header-section {
+    border: darkorange 1px dashed;
+    height: 60px;
+    width: 100%;
+    background: #519872;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.header-part-one {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.houser-logo {
+    padding: 10px;
+}
+
+.houser-text {
+    color: white;
+    font-weight: bold;
+    font-size: 1.6rem;
+}

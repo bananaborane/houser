@@ -13,11 +13,12 @@ class App extends Component {
     return (
       <HashRouter>
         <div className="App">
-          <header className="App-header">
-            <img src={logo} className="App-logo" alt="logo" />
+
             <Header />
-              {routes}
-          </header>
+              <div className='main'>
+                {routes}
+              </div>
+
         </div>
       </HashRouter>
     );
